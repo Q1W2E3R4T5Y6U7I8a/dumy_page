@@ -1,14 +1,5 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</codeimport React, { useState } from 'react';
-import { FaFacebook, FaInstagram, FaTelegram, FaYoutube, FaPatreon, FaEnvelope } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { FaFacebook, FaInstagram, FaTelegram, FaYoutube, FaPatreon, FaEnvelope, FaUsers, FaCalendarAlt } from 'react-icons/fa';
 import './App.css';
 
 function App() {
@@ -23,9 +14,15 @@ function App() {
       aboutText: "Je m'appelle Makar Karma. J'ai commencé ce projet à 17 ans en 2017, quand j'ai fait du stop au Danemark pour comprendre pourquoi ils sont 'les plus heureux du monde'. La réponse est dans la construction de communauté, ces valeurs socialo-capitalistes d'éducation gratuite, santé pour tous... Mais surtout - LA COMMUNAUTÉ.",
       philosophy: "Ma philosophie",
       philosophyText: "J'ai commencé le blog DUMY à 17 ans et je sens que ça fait partie de moi. La vision est grande, mais ce n'est pas une entreprise. C'est une question de valeurs. Ça l'a toujours été et ça le sera toujours. Peu importe si DUMY devient un grand ou petit projet. Ce sera toujours le projet de ma vie.",
-      data: "Nos Données",
-      dataText: "Explorez les données que nous collectons pour comprendre et améliorer les communautés.",
-      viewData: "Voir les données sur datadum",
+      data: "DataDUM",
+      dataText: "Notre base de données communautaire. Explorez les données que nous collectons pour comprendre et améliorer le monde.",
+      viewData: "VISITER LE SITE",
+      spreadsheet: "TABLEUR DES DONNÉES",
+      bookcrossingText: "Un projet de partage de livres à travers l'Ukraine. Rejoignez notre communauté de lecteurs et échangez des livres dans tout le pays.",
+      visitBookcrossing: "VISITER BOOKCROSSING",
+      stats: "Nos Statistiques",
+      subscribers: "Abonnés",
+      events: "Événements organisés",
       contact: "Contact",
       email: "Email",
       follow: "Suivez-nous",
@@ -39,9 +36,15 @@ function App() {
       aboutText: "I am Makar Karma. I started this project at 17 in 2017, when I hitchhiked in Denmark to understand why they are 'the happiest'. The answer is in building community, those socialist-capitalistic values of free education, healthcare for all... But most importantly - COMMUNITY.",
       philosophy: "My Philosophy",
       philosophyText: "I started the DUMY blog at 17 and it totally feels like it's part of me. The vision is grand, but it's not about business. It's about values. Always been and always will be. No matter if DUMY becomes a big or small project. It will always be the project of my life.",
-      data: "Our Data",
-      dataText: "Explore the data we collect to understand and improve communities.",
-      viewData: "View data on datadum",
+      data: "DataDUM",
+      dataText: "Our community database. Explore the data we collect to understand and improve the world.",
+      viewData: "VISIT THE WEBSITE",
+      spreadsheet: "DATA SPREADSHEET",
+      bookcrossingText: "A book sharing project across Ukraine. Join our community of readers and exchange books throughout the country.",
+      visitBookcrossing: "VISIT BOOKCROSSING",
+      stats: "Our Statistics",
+      subscribers: "Subscribers",
+      events: "Events held",
       contact: "Contact",
       email: "Email",
       follow: "Follow us",
@@ -55,9 +58,15 @@ function App() {
       aboutText: "Я Макар Карма. Я почав цей проєкт у 17 років у 2017, коли подорожував автостопом у Данії, щоб зрозуміти, чому вони 'найщасливіші'. Відповідь у побудові спільноти, цих соціалістично-капіталістичних цінностях безкоштовної освіти, медицини для всіх... Але найголовніше - СПІЛЬНОТА.",
       philosophy: "Моя філософія",
       philosophyText: "Я почав блог DUMY у 17 і відчуваю, що це частина мене. Бачення грандіозне, але це не про бізнес. Це про цінності. Так було завжди і так буде завжди. Неважливо, чи стане DUMY великим чи малим проєктом. Це завжди буде проєктом мого життя.",
-      data: "Наші дані",
-      dataText: "Досліджуйте дані, які ми збираємо, щоб розуміти та покращувати спільноти.",
-      viewData: "Переглянути дані на datadum",
+      data: "DataDUM",
+      dataText: "Наша база даних спільноти. Досліджуйте дані, які ми збираємо, щоб розуміти та покращувати світ.",
+      viewData: "ВІДВІДАТИ САЙТ",
+      spreadsheet: "ТАБЛИЦЯ ДАНИХ",
+      bookcrossingText: "Проєкт обміну книгами по всій Україні. Приєднуйтесь до нашої спільноти читачів та обмінюйтесь книгами по всій країні.",
+      visitBookcrossing: "ВІДВІДАТИ BOOKCROSSING",
+      stats: "Наша статистика",
+      subscribers: "Підписників",
+      events: "Проведено подій",
       contact: "Контакти",
       email: "Email",
       follow: "Слідкуйте за нами",
@@ -81,6 +90,20 @@ function App() {
         <h1 className="title">DUMY</h1>
         <p className="subtitle">Building communities since 2017</p>
 
+        {/* Statistics Cards */}
+        <div className="stats-container">
+          <div className="stat-card">
+            <FaUsers className="stat-icon" />
+            <div className="stat-number">140.435</div>
+            <div className="stat-label">{t.subscribers}</div>
+          </div>
+          <div className="stat-card">
+            <FaCalendarAlt className="stat-icon" />
+            <div className="stat-number">13</div>
+            <div className="stat-label">{t.events}</div>
+          </div>
+        </div>
+
         {/* Mission Section */}
         <section className="section">
           <h2>{t.mission}</h2>
@@ -100,17 +123,35 @@ function App() {
           <p>{t.philosophyText}</p>
         </section>
 
-        {/* Data Section */}
+        {/* Data Section - DataDUM Project */}
         <section className="section data-section">
-          <h2>{t.data}</h2>
+          <h2>🗺 {t.data}</h2>
           <p>{t.dataText}</p>
+          
+          <div className="data-links">
+            <a 
+              href="https://q1w2e3r4t5y6u7i8a.github.io/data_science/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="data-link primary"
+            >
+              {t.viewData} →
+            </a>
+            
+          </div>
+        </section>
+
+        {/* Bookcrossing Project */}
+        <section className="section bookcrossing-section">
+          <h2>📚 Bookcrossing Ukraine</h2>
+          <p>{t.bookcrossingText}</p>
           <a 
-            href="https://datadum.com" 
+            href="https://dumy-ochre.vercel.app/" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="data-link"
+            className="bookcrossing-link"
           >
-            {t.viewData} →
+            {t.visitBookcrossing} →
           </a>
         </section>
 
@@ -121,20 +162,17 @@ function App() {
             <a href="https://facebook.com/dumy" target="_blank" rel="noopener noreferrer">
               <FaFacebook /> Facebook
             </a>
-            <a href="https://instagram.com/dumy" target="_blank" rel="noopener noreferrer">
-              <FaInstagram /> Instagram
+            <a href="https://instagram.com/dumyUA" target="_blank" rel="noopener noreferrer">
+              <FaInstagram /> Instagram (@dumyUA)
             </a>
-            <a href="https://telegram.org/dumy" target="_blank" rel="noopener noreferrer">
-              <FaTelegram /> Telegram
+            <a href="https://t.me/dumyUA" target="_blank" rel="noopener noreferrer">
+              <FaTelegram /> Telegram (@dumyUA)
             </a>
-            <a href="https://youtube.com/@dumy" target="_blank" rel="noopener noreferrer">
-              <FaYoutube /> YouTube
+            <a href="https://www.youtube.com/@dumyUA" target="_blank" rel="noopener noreferrer">
+              <FaYoutube /> YouTube (@dumyUA)
             </a>
-            <a href="https://patreon.com/dumy" target="_blank" rel="noopener noreferrer">
-              <FaPatreon /> Patreon
-            </a>
-            <a href="mailto:contact@dumy.org">
-              <FaEnvelope /> {t.email}
+            <a href="mailto:makarkarma21@gmail.com">
+              <FaEnvelope /> makarkarma21@gmail.com
             </a>
           </div>
         </section>
@@ -144,21 +182,6 @@ function App() {
       <footer className="footer">
         <p>{t.copyright}</p>
       </footer>
-    </div>
-  );
-}
-
-export default App;> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
     </div>
   );
 }
