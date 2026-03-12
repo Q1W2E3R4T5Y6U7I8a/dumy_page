@@ -1,38 +1,225 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: 'Courier New', monospace;
+  background: #0a0f0a;
+  color: #04ff00;
+  line-height: 1.6;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.app {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+/* Language Selector */
+.language-selector {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+  background: #0a1420;
+  border: 1px solid #ffd700;
+  border-radius: 4px;
+  display: flex;
+}
+
+.language-selector button {
+  background: transparent;
+  border: none;
+  color: #04ff00;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  transition: all 0.2s;
+}
+
+.language-selector button:hover {
+  background: #04ff00;
+  color: #0a0f0a;
+}
+
+.language-selector button.active {
+  background: #ffd700;
+  color: #0a0f0a;
+}
+
+/* Container */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 80px 20px 40px;
+  flex: 1;
+}
+
+/* Title */
+.title {
+  font-size: 4rem;
+  color: #ffd700;
+  text-align: center;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #3a5f7f;
+  margin-bottom: 60px;
+  font-size: 1.1rem;
+}
+
+/* Sections */
+.section {
+  margin-bottom: 60px;
+  padding: 30px;
+  border: 1px solid #3a5f7f;
+  border-radius: 8px;
+  background: rgba(10, 20, 32, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+.section h2 {
+  color: #ffd700;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  border-left: 4px solid #04ff00;
+  padding-left: 15px;
+}
+
+.section p {
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+/* Philosophy section special style */
+.philosophy {
+  border-color: #ffd700;
+  background: rgba(255, 215, 0, 0.05);
+}
+
+/* Data section */
+.data-section {
+  text-align: center;
+  background: rgba(4, 255, 0, 0.05);
+}
+
+.data-link {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 30px;
+  background: transparent;
+  border: 2px solid #04ff00;
+  color: #04ff00;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.3s;
+}
+
+.data-link:hover {
+  background: #04ff00;
+  color: #0a0f0a;
+}
+
+/* Social Links */
+.social-section {
+  text-align: center;
+}
+
+.social-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.social-links a {
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 10px;
+  padding: 15px;
+  background: transparent;
+  border: 1px solid #3a5f7f;
+  color: #04ff00;
+  text-decoration: none;
+  transition: all 0.2s;
+  font-size: 0.9rem;
 }
 
-.App-link {
-  color: #61dafb;
+.social-links a:hover {
+  border-color: #ffd700;
+  background: rgba(255, 215, 0, 0.1);
+  transform: translateY(-2px);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.social-links svg {
+  font-size: 1.2rem;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 30px;
+  background: #0a1420;
+  border-top: 1px solid #3a5f7f;
+  color: #3a5f7f;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .language-selector {
+    top: 10px;
+    right: 10px;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .language-selector button {
+    padding: 6px 10px;
+    font-size: 0.8rem;
   }
+  
+  .container {
+    padding: 70px 15px 30px;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+  }
+  
+  .section {
+    padding: 20px;
+  }
+  
+  .section h2 {
+    font-size: 1.5rem;
+  }
+  
+  .social-links {
+    grid-template-columns: 1fr;
+  }
+  
+  .social-links a {
+    padding: 12px;
+  }
+}
+
+/* Animations */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.title::after {
+  content: '_';
+  animation: blink 1s infinite;
+  color: #04ff00;
 }
